@@ -1,4 +1,4 @@
-# merge_sort
+# MergeSort
 
 Simple C++ implementation of the merge sort algorithm.
 
