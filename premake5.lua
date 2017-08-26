@@ -2,11 +2,11 @@
 
 
 -- premake5.lua
-workspace "merge_sort"
+workspace "MergeSort"
    configurations { "Debug", "Release" }
    location "build"
 
-project "merge_sort"
+project "MergeSort"
    location "build"
    kind "ConsoleApp"
    language "C++"
