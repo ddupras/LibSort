@@ -1,6 +1,9 @@
-# MergeSort
+# LibSort
 
-Simple C++ implementation of the merge sort algorithm.
+Simple C++ implementation of several sorting algorithms:
+
+* Merge sort
+* Bubble sort
 
 ## Building
 
