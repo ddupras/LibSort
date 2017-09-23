@@ -9,25 +9,25 @@
 #include <vector>
 #include <climits>
 
-void Merge (std::vector<int> &A, int p, int q, int r)
+void Merge (std::vector<int> &A, int left, int middle, int right)
 {
-	int n1 = q - p + 1;
-	int n2 = r - q;
+	int n1 = middle - left + 1;
+	int n2 = right - middle;
 	std::vector<int> L(n1 + 1);
 	std::vector<int> R(n2 + 1);
 	for (int i = 0; i < n1; i++)
 	{
-		L[i] = A[p + i];
+		L[i] = A[left + i];
 	}
 	for (int j = 0; j < n2; j++)
 	{
-		R[j] = A[q + j + 1];
+		R[j] = A[middle + j + 1];
 	}
 	L[n1] = INT_MAX;
 	R[n2] = INT_MAX;
 	int i = 0;
 	int j = 0;
-	for (int k = p; k <= r; k++)
+	for (int k = left; k <= right; k++)
 	{
 		if (L[i] <= R[j])
 		{
