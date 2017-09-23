@@ -7,7 +7,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <vector>
-//#include <climits>
+#include <climits>
 
 void Merge (std::vector<int> &A, int p, int q, int r)
 {

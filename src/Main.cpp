@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include <vector>
-#include <climits>
 
 void DumpVector(std::vector<int> &A);
 void MergeSort(std::vector<int> &A, int p, int r);
