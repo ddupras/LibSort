@@ -16,31 +16,31 @@ void BubbleSort(std::vector<int> &A);
 
 int main(int argc, char* argv[])
 {
-	int A_values[] = { 3, 41, 52, 26, 38, 57, 9, 49 };
-	std::vector<int> A(A_values, A_values + sizeof(A_values) / sizeof(int));
+    int A_values[] = { 3, 41, 52, 26, 38, 57, 9, 49 };
+    std::vector<int> A(A_values, A_values + sizeof(A_values) / sizeof(int));
 
-	std::cout << "Merge Sort" << std::endl;
+    std::cout << "Merge Sort" << std::endl;
 
-	DumpVector(A);
+    DumpVector(A);
 
-	std::cout << "Sorting " << A.size() << " elements." << std::endl;
+    std::cout << "Sorting " << A.size() << " elements." << std::endl;
 
-	MergeSort(A, 0, A.size() - 1);
+    MergeSort(A, 0, A.size() - 1);
 
-	DumpVector(A);
+    DumpVector(A);
 
-	std::cout << "Done." << std::endl;
-	getchar();
+    std::cout << "Done." << std::endl;
+    getchar();
 
-	return 0;
+    return 0;
 }
 
 void DumpVector(std::vector<int> &A)
 {
-	for (std::vector<int>::iterator it = A.begin(); it != A.end(); ++it)
-	{
-		std::cout << ' ' << *it;
-	}
-	std::cout << std::endl;
+    for (std::vector<int>::iterator it = A.begin(); it != A.end(); ++it)
+    {
+        std::cout << ' ' << *it;
+    }
+    std::cout << std::endl;
 }
 
