@@ -40,13 +40,13 @@ void Merge (std::vector<int> &A, int left, int middle, int right)
     }
 }
 
-void MergeSort(std::vector<int> &A, int p, int r)
+void MergeSort(std::vector<int> &A, int left, int right)
 {
-    if (p < r)
+    if (left < right)
     {
-        int q = (p + r) / 2;
-        MergeSort(A, p, q);
-        MergeSort(A, q + 1, r);
-        Merge(A, p, q, r);
+        int middle = (left + right) / 2;
+        MergeSort(A, left, middle);
+        MergeSort(A, middle + 1, right);
+        Merge(A, left, middle, right);
     }
 }
