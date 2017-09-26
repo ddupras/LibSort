@@ -9,6 +9,9 @@
 #include <vector>
 #include <climits>
 
+namespace LibSort
+{
+
 void Merge (std::vector<int> &A, int left, int middle, int right)
 {
     int n1 = middle - left + 1;
@@ -40,7 +43,7 @@ void Merge (std::vector<int> &A, int left, int middle, int right)
     }
 }
 
-void MergeSort(std::vector<int> &A, int left, int right)
+void MergeSort (std::vector<int> &A, int left, int right)
 {
     if (left < right)
     {
@@ -50,3 +53,5 @@ void MergeSort(std::vector<int> &A, int left, int right)
         Merge(A, left, middle, right);
     }
 }
+
+} // namespace LibSort

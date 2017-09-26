@@ -9,12 +9,18 @@
 #include <iostream>
 #include <vector>
 
-void DumpVector(std::vector<int> &A);
-void MergeSort(std::vector<int> &A, int p, int r);
-void Merge(std::vector<int> &A, int p, int q, int r);
-void BubbleSort(std::vector<int> &A);
+#include "LibSort.h"
 
-int main(int argc, char* argv[])
+void DumpVector (std::vector<int> &A)
+{
+    for (std::vector<int>::iterator it = A.begin(); it != A.end(); ++it)
+    {
+        std::cout << ' ' << *it;
+    }
+    std::cout << std::endl;
+}
+
+int main (int argc, char* argv[])
 {
     int A_values[] = { 3, 41, 52, 26, 38, 57, 9, 49 };
     std::vector<int> A(A_values, A_values + sizeof(A_values) / sizeof(int));
@@ -25,7 +31,7 @@ int main(int argc, char* argv[])
 
     std::cout << "Sorting " << A.size() << " elements." << std::endl;
 
-    MergeSort(A, 0, A.size() - 1);
+    LibSort::MergeSort(A, 0, A.size() - 1);
 
     DumpVector(A);
 
@@ -34,13 +40,3 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
-void DumpVector(std::vector<int> &A)
-{
-    for (std::vector<int>::iterator it = A.begin(); it != A.end(); ++it)
-    {
-        std::cout << ' ' << *it;
-    }
-    std::cout << std::endl;
-}
-

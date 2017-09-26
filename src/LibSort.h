@@ -1,0 +1,15 @@
+//////////////////////////////////////////////////////////////////////
+//
+// LibSort.h
+//
+// (c) 2015-2017 Derek Dupras, All Rights Reserved.
+//
+//////////////////////////////////////////////////////////////////////
+
+#pragma once
+
+namespace LibSort
+{
+    void MergeSort(std::vector<int> &A, int p, int r);
+    void BubbleSort(std::vector<int> &A);
+} // namespace LibSort
