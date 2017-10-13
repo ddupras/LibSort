@@ -8,9 +8,6 @@
 
 #include <vector>
 #include <climits>
-#include <time.h>
-
-#include "LibSort.h"
 
 namespace LibSort
 {
@@ -46,23 +43,14 @@ void Merge (std::vector<int> &A, int left, int middle, int right)
     }
 }
 
-void MergeSort (std::vector<int> &A, int left, int right, clock_t *elapsedTime)
+void MergeSort (std::vector<int> &A, int left, int right)
 {
-    clock_t startTime;
-    clock_t stopTime;
-
-    startTime = clock();
     if (left < right)
     {
         int middle = (left + right) / 2;
         MergeSort(A, left, middle);
         MergeSort(A, middle + 1, right);
         Merge(A, left, middle, right);
-    }
-    stopTime = clock();
-    if (elapsedTime != nullptr)
-    {
-        *elapsedTime = stopTime - startTime;
     }
 }
 
