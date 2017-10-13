@@ -31,9 +31,13 @@ int main (int argc, char* argv[])
 
     std::cout << "Sorting " << A.size() << " elements." << std::endl;
 
-    LibSort::MergeSort(A, 0, A.size() - 1);
+    clock_t sortTime = 0;
+    LibSort::MergeSort(A, 0, A.size() - 1, &sortTime);
+//    LibSort::BubbleSort(A, &sortTime);
 
     DumpVector(A);
+
+    std::cout << "Elapsed Time: " << sortTime << " clock ticks." << std::endl;
 
     std::cout << "Done." << std::endl;
     getchar();

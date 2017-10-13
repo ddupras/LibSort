@@ -8,8 +8,12 @@
 
 #pragma once
 
+#include <vector>
+#include <time.h>
+
 namespace LibSort
 {
-    void MergeSort(std::vector<int> &A, int p, int r);
-    void BubbleSort(std::vector<int> &A);
+    // Sort methods
+    void MergeSort (std::vector<int> &A, int p, int r, clock_t *elapsedTime = nullptr);
+    void BubbleSort (std::vector<int> &A, clock_t *elapsedTime = nullptr);
 } // namespace LibSort
