@@ -46,12 +46,8 @@ void Merge (std::vector<int> &A, int left, int middle, int right)
     }
 }
 
-void MergeSort (std::vector<int> &A, int left, int right, clock_t *elapsedTime)
+void MergeSort (std::vector<int> &A, int left, int right)
 {
-    clock_t startTime;
-    clock_t stopTime;
-
-    startTime = clock();
     if (left < right)
     {
         int middle = (left + right) / 2;
@@ -59,11 +55,19 @@ void MergeSort (std::vector<int> &A, int left, int right, clock_t *elapsedTime)
         MergeSort(A, middle + 1, right);
         Merge(A, left, middle, right);
     }
+}
+
+void MergeSort(std::vector<int> &A, int left, int right, clock_t &elapsedTime)
+{
+    clock_t startTime;
+    clock_t stopTime;
+
+    startTime = clock();
+
+    MergeSort(A, left, right);
+
     stopTime = clock();
-    if (elapsedTime != nullptr)
-    {
-        *elapsedTime = stopTime - startTime;
-    }
+    elapsedTime = stopTime - startTime;
 }
 
 } // namespace LibSort

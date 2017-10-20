@@ -13,12 +13,8 @@
 namespace LibSort
 {
 
-void BubbleSort(std::vector<int> &A, clock_t *elapsedTime)
+void BubbleSort(std::vector<int> &A)
 {
-    clock_t startTime;
-    clock_t stopTime;
-
-    startTime = clock();
     for (size_t i = 0; i < A.size() - 2; i++)
     {
         for (size_t j = A.size() - 1; j > i + 1; j--)
@@ -31,11 +27,19 @@ void BubbleSort(std::vector<int> &A, clock_t *elapsedTime)
             }
         }
     }
+}
+
+void BubbleSort(std::vector<int> &A, clock_t &elapsedTime)
+{
+    clock_t startTime;
+    clock_t stopTime;
+
+    startTime = clock();
+
+    BubbleSort(A);
+
     stopTime = clock();
-    if (elapsedTime != nullptr)
-    {
-        *elapsedTime = stopTime - startTime;
-    }
+    elapsedTime = stopTime - startTime;
 }
 
 } // namespace LibSort

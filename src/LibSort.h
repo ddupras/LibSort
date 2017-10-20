@@ -14,6 +14,9 @@
 namespace LibSort
 {
     // Sort methods
-    void MergeSort (std::vector<int> &A, int p, int r, clock_t *elapsedTime = nullptr);
-    void BubbleSort (std::vector<int> &A, clock_t *elapsedTime = nullptr);
+    void MergeSort(std::vector<int> &A, int p, int r);
+    void MergeSort (std::vector<int> &A, int p, int r, clock_t &elapsedTime);
+
+    void BubbleSort(std::vector<int> &A);
+    void BubbleSort (std::vector<int> &A, clock_t &elapsedTime);
 } // namespace LibSort
