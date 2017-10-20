@@ -57,7 +57,7 @@ void MergeSort (std::vector<int> &A, int left, int right)
     }
 }
 
-void MergeSort(std::vector<int> &A, int left, int right, clock_t &elapsedTime)
+void MergeSort (std::vector<int> &A, int left, int right, clock_t &elapsedTime)
 {
     clock_t startTime;
     clock_t stopTime;

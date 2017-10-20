@@ -32,8 +32,9 @@ int main (int argc, char* argv[])
     std::cout << "Sorting " << A.size() << " elements." << std::endl;
 
     clock_t sortTime = 0;
-    LibSort::MergeSort(A, 0, A.size() - 1, sortTime);
+//    LibSort::MergeSort(A, 0, A.size() - 1, sortTime);
 //    LibSort::BubbleSort(A, sortTime);
+    LibSort::ShellSort(A, sortTime);
 
     DumpVector(A);
 
