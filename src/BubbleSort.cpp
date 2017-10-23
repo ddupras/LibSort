@@ -13,33 +13,33 @@
 namespace LibSort
 {
 
-void BubbleSort (std::vector<int> &A)
-{
-    for (size_t i = 0; i < A.size() - 2; i++)
+    void BubbleSort (std::vector<int> &A)
     {
-        for (size_t j = A.size() - 1; j > i + 1; j--)
+        for (size_t i = 0; i < A.size() - 2; i++)
         {
-            if (A[j] < A[j - 1])
+            for (size_t j = A.size() - 1; j > i + 1; j--)
             {
-                int temp = A[j];
-                A[j] = A[j - 1];
-                A[j - 1] = temp;
+                if (A[j] < A[j - 1])
+                {
+                    int temp = A[j];
+                    A[j] = A[j - 1];
+                    A[j - 1] = temp;
+                }
             }
         }
     }
-}
 
-void BubbleSort (std::vector<int> &A, clock_t &elapsedTime)
-{
-    clock_t startTime;
-    clock_t stopTime;
+    void BubbleSort (std::vector<int> &A, clock_t &elapsedTime)
+    {
+        clock_t startTime;
+        clock_t stopTime;
 
-    startTime = clock();
+        startTime = clock();
 
-    BubbleSort(A);
+        BubbleSort(A);
 
-    stopTime = clock();
-    elapsedTime = stopTime - startTime;
-}
+        stopTime = clock();
+        elapsedTime = stopTime - startTime;
+    }
 
 } // namespace LibSort
