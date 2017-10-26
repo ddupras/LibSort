@@ -20,7 +20,8 @@ namespace LibSort
     void BubbleSort (std::vector<int> &A);
     void BubbleSort (std::vector<int> &A, clock_t &elapsedTime);
 
+/*
     void ShellSort (std::vector<int> &A);
     void ShellSort (std::vector<int> &A, clock_t &elapsedTime);
-
+*/
 } // namespace LibSort

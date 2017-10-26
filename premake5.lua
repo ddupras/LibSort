@@ -10,14 +10,26 @@ project "LibSort"
    location "build"
    kind "ConsoleApp"
    language "C++"
-   targetdir "bin/%{cfg.buildcfg}"
 
+   -- Catch will define a main if not provided, but we need to define DO_NOT_USE_WMAIN
+   defines { "DO_NOT_USE_WMAIN" }
+
+   targetdir "bin/%{cfg.buildcfg}"
+   includedirs {"external/catch"}
    files { "**.h", "**.cpp" }
 
-   filter "configurations:Debug"
-      defines { "DEBUG" }
-      symbols "On"
+--   filter "configurations:Debug"
+--      defines { "DEBUG" }
+--      symbols "On"
 
-   filter "configurations:Release"
-      defines { "NDEBUG" }
-      optimize "On"
+--   filter "configurations:Release"
+--      defines { "NDEBUG" }
+--      optimize "On"
+
+	configuration "Debug"
+		defines { "DEBUG" }
+		flags { "Symbols" }
+
+	configuration "Release"
+		defines { "NDEBUG" }
+		flags { "Optimize" }
