@@ -7,7 +7,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <vector>
-#include <climits>
+#include <limits>
 #include <time.h>
 
 #include "LibSort.h"
@@ -29,8 +29,8 @@ namespace LibSort
         {
             R[j] = A[middle + j + 1];
         }
-        L[n1] = INT_MAX;
-        R[n2] = INT_MAX;
+        L[n1] = std::numeric_limits<int>::max();
+        R[n2] = std::numeric_limits<int>::max();
         int i = 0;
         int j = 0;
         for (int k = left; k <= right; k++)
