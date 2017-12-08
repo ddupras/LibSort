@@ -1,9 +1,25 @@
 # LibSort
 
-Simple C++ implementation of several sorting algorithms:
+**LibSort** is a simple C++ implementation of several sorting algorithms:
 
-* Merge sort
 * Bubble sort
+* Insertion sort
+* Merge sort
+* Quick sort
+* Selection sort
+* Shell's sort
+
+Most of these algorithms are found in the MIT Press book, "Introduction to Algorithms" by 
+Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. This is commonly known
+as the "CLRS" book.
+
+## Purpose
+
+This library is primarily for those who want utilize to a specific sorting algorithm with
+the most common std::vector data structure containing either ints or strings. Additionally, This
+project uses Premake in order to simplify the build process and also uses Catch for unit tests.
+Again, the goal is simplicity. Given this simplicity, it should be very easy for others to
+extend and improve upon this library.
 
 ## Building
 
