@@ -15,16 +15,20 @@ namespace LibSort
 
     void BubbleSort (std::vector<std::string> &A)
     {
+        if (A.size() == 0)
+        {
+            return;
+        }
+
         for (size_t i = 0; i < A.size() - 1; i++)
         {
-            for (size_t j = 0; j < A.size() - i - 1; j++)
+            for (size_t j = A.size() - 1; j > i; j--)
             {
-                int result = A[j].compare(A[j + 1]);
-                if (result > 0)
+                if (A[j] < A[j - 1])
                 {
                     std::string temp = A[j];
-                    A[j] = A[j + 1];
-                    A[j + 1] = temp;
+                    A[j] = A[j - 1];
+                    A[j - 1] = temp;
                 }
             }
         }
@@ -32,6 +36,11 @@ namespace LibSort
 
     void BubbleSort (std::vector<int> &A)
     {
+        if (A.size() == 0)
+        {
+            return;
+        }
+
         for (size_t i = 0; i < A.size() - 1; i++)
         {
             for (size_t j = A.size() - 1; j > i; j--)
