@@ -18,12 +18,13 @@ namespace LibSort
     {
         int i, j, key;
 
-        for (j = 1; j < A.size(); j++)
+        for (j = 1; j < (int)A.size(); j++)
         {
             key = A[j];
+
             // Insert A[j] into the sorted sequence A[1..j-1]
             i = j - 1;
-            while (i >= 0 && A[i] > key)
+            while ((i >= 0) && (A[i] > key))
             {
                 A[i + 1] = A[i];
                 i = i - 1;
