@@ -30,3 +30,7 @@ This project uses Premake to generate the makefiles for your platform and compil
 I found the following [blog post](https://reprog.wordpress.com/2010/05/20/what-does-it-take-to-test-a-sorting-routine/)
 useful when designing my tests.
 
+# Acknowledgments
+
+I'd like to thank the community of GitHub contributors for providing me a rich source of projects to draw
+inspiration from.
