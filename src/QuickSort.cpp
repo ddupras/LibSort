@@ -70,14 +70,19 @@ namespace LibSort
         }
     }
 
-    void QuickSort (std::vector<int> &A, int low, int high, clock_t &elapsedTime)
+    void QuickSort(std::vector<int> &A)
+    {
+        QuickSort(A, 0, A.size() - 1);
+    }
+
+    void QuickSort (std::vector<int> &A, clock_t &elapsedTime)
     {
         clock_t startTime;
         clock_t stopTime;
 
         startTime = clock();
 
-        QuickSort(A, low, high);
+        QuickSort(A);
 
         stopTime = clock();
         elapsedTime = stopTime - startTime;

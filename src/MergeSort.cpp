@@ -79,14 +79,19 @@ namespace LibSort
         }
     }
 
-    void MergeSort (std::vector<int> &A, int left, int right, clock_t &elapsedTime)
+    void MergeSort(std::vector<int> &A)
+    {
+        return MergeSort(A, 0, A.size() - 1);
+    }
+
+    void MergeSort (std::vector<int> &A, clock_t &elapsedTime)
     {
         clock_t startTime;
         clock_t stopTime;
 
         startTime = clock();
 
-        MergeSort(A, left, right);
+        MergeSort(A);
 
         stopTime = clock();
         elapsedTime = stopTime - startTime;

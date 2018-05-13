@@ -36,8 +36,8 @@
 namespace LibSort
 {
     // Sort methods
-    void MergeSort (std::vector<int> &A, int left, int right);
-    void MergeSort (std::vector<int> &A, int left, int right, clock_t &elapsedTime);
+    void MergeSort (std::vector<int> &A);
+    void MergeSort (std::vector<int> &A, clock_t &elapsedTime);
 
     void BubbleSort (std::vector<std::string> &A);
     void BubbleSort (std::vector<int> &A);
@@ -46,8 +46,8 @@ namespace LibSort
     void ShellSort (std::vector<int> &A);
     void ShellSort (std::vector<int> &A, clock_t &elapsedTime);
 
-    void QuickSort (std::vector<int> &A, int low, int high);
-    void QuickSort (std::vector<int> &A, int low, int high, clock_t &elapsedTime);
+    void QuickSort (std::vector<int> &A);
+    void QuickSort (std::vector<int> &A, clock_t &elapsedTime);
 
     void SelectionSort (std::vector<int> &A);
     void SelectionSort (std::vector<int> &A, clock_t &elapsedTime);

@@ -116,7 +116,7 @@ TEST_CASE("Test sort algorithms", "[sort]")
 
     SECTION("MergeSort")
     {
-        LibSort::MergeSort(A, 0, A.size() - 1);
+        LibSort::MergeSort(A);
         CHECK(std::is_sorted(std::begin(A), std::end(A)));
     }
 
@@ -128,7 +128,7 @@ TEST_CASE("Test sort algorithms", "[sort]")
 
     SECTION("QuickSort")
     {
-        LibSort::QuickSort(A, 0, A.size() - 1);
+        LibSort::QuickSort(A);
         CHECK(std::is_sorted(std::begin(A), std::end(A)));
     }
 
