@@ -13,36 +13,36 @@
 namespace LibSort
 {
 
-void ShellSort (std::vector<int> &A)
-{
-    for (size_t step = A.size() / 2; step > 0; step /= 2)
+    void ShellSort (std::vector<int> &A)
     {
-        for (size_t i = step; i < A.size(); i += 1)
+        for (size_t step = A.size() / 2; step > 0; step /= 2)
         {
-            int temp = A[i];
-
-            size_t j;
-            for (j = i; j >= step && A[j - step] > temp; j -= step)
+            for (size_t i = step; i < A.size(); i += 1)
             {
-                A[j] = A[j - step];
-            }
+                int temp = A[i];
 
-            A[j] = temp;
+                size_t j;
+                for (j = i; j >= step && A[j - step] > temp; j -= step)
+                {
+                    A[j] = A[j - step];
+                }
+
+                A[j] = temp;
+            }
         }
     }
-}
 
-void ShellSort (std::vector<int> &A, clock_t &elapsedTime)
-{
-    clock_t startTime;
-    clock_t stopTime;
+    void ShellSort (std::vector<int> &A, clock_t &elapsedTime)
+    {
+        clock_t startTime;
+        clock_t stopTime;
 
-    startTime = clock();
+        startTime = clock();
 
-    ShellSort(A);
+        ShellSort(A);
 
-    stopTime = clock();
-    elapsedTime = stopTime - startTime;
-}
+        stopTime = clock();
+        elapsedTime = stopTime - startTime;
+    }
 
 } // namespace LibSort
