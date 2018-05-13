@@ -42,7 +42,16 @@ For more information about Premake
 I found the following [blog post](https://reprog.wordpress.com/2010/05/20/what-does-it-take-to-test-a-sorting-routine/)
 useful when designing my tests.
 
-# Acknowledgments
+## Coding/Style Guidelines
+
+In general, the coding style follows the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+
+There are some exceptions from the Google style:
+
+	1. Filenames are CamelCase, not lowercase.
+	2. Namespace names are CamelCase, not lowercase.
+
+## Acknowledgments
 
 I'd like to thank the community of GitHub contributors for providing me a rich
 source of projects to draw inspiration from.
