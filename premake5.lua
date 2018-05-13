@@ -6,7 +6,7 @@ workspace "LibSort"
    configurations { "Debug", "Release" }
    location "build"
 
-project "LibSort"
+project "LibSort-test"
    location "build"
    kind "ConsoleApp"
    language "C++"
@@ -15,7 +15,7 @@ project "LibSort"
    defines { "DO_NOT_USE_WMAIN" }
 
    targetdir "bin/%{cfg.buildcfg}"
-   includedirs {"external/catch"}
+   includedirs { "include", "external/catch" }
    files { "**.h", "**.cpp" }
 
 --   filter "configurations:Debug"
