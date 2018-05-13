@@ -38,19 +38,19 @@ namespace LibSort
 
     void SelectionSort (std::vector<int> &A, int n)
     {
-        int i, j, min_idx;
+        int i, j, min_index;
 
         // One by one move boundary of unsorted subarray
         for (i = 0; i < n - 1; i++)
         {
             // Find the minimum element in unsorted array
-            min_idx = i;
+            min_index = i;
             for (j = i + 1; j < n; j++)
-                if (A[j] < A[min_idx])
-                    min_idx = j;
+                if (A[j] < A[min_index])
+                    min_index = j;
 
             // Swap the found minimum element with the first element
-            std::swap(A[min_idx], A[i]);
+            std::swap(A[min_index], A[i]);
         }
     }
 
