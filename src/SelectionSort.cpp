@@ -36,8 +36,9 @@
 namespace LibSort
 {
 
-    void SelectionSort (std::vector<int> &A, int n)
+    void SelectionSort (std::vector<int> &A)
     {
+        int n = A.size();
         int i, j, min_index;
 
         // One by one move boundary of unsorted subarray
@@ -54,14 +55,14 @@ namespace LibSort
         }
     }
 
-    void SelectionSort (std::vector<int> &A, int n, clock_t &elapsedTime)
+    void SelectionSort (std::vector<int> &A, clock_t &elapsedTime)
     {
         clock_t startTime;
         clock_t stopTime;
 
         startTime = clock();
 
-        SelectionSort(A, n);
+        SelectionSort(A);
 
         stopTime = clock();
         elapsedTime = stopTime - startTime;

@@ -49,8 +49,8 @@ namespace LibSort
     void QuickSort (std::vector<int> &A, int low, int high);
     void QuickSort (std::vector<int> &A, int low, int high, clock_t &elapsedTime);
 
-    void SelectionSort (std::vector<int> &A, int n);
-    void SelectionSort (std::vector<int> &A, int n, clock_t &elapsedTime);
+    void SelectionSort (std::vector<int> &A);
+    void SelectionSort (std::vector<int> &A, clock_t &elapsedTime);
 
     void InsertionSort (std::vector<int> &A);
     void InsertionSort (std::vector<int> &A, clock_t &elapsedTime);

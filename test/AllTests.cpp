@@ -134,7 +134,7 @@ TEST_CASE("Test sort algorithms", "[sort]")
 
     SECTION("SelectionSort")
     {
-        LibSort::SelectionSort(A, A.size());
+        LibSort::SelectionSort(A);
         CHECK(std::is_sorted(std::begin(A), std::end(A)));
     }
 
