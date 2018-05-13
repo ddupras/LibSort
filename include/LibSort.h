@@ -30,8 +30,8 @@
 
 #pragma once
 
+#include <ctime>
 #include <vector>
-#include <time.h>
 
 namespace LibSort
 {

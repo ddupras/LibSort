@@ -28,9 +28,10 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+#include <ctime>
 #include <vector>
 
-#include "LibSort.h"
+#include <LibSort.h>
 
 namespace LibSort
 {
