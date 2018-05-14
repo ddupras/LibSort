@@ -1,6 +1,7 @@
 # LibSort
 
-**LibSort** is a simple C++ implementation of several sorting algorithms:
+**LibSort** is a C++ header-only library implementation of several common
+sorting algorithms:
 
 * Bubble sort
 * Insertion sort
