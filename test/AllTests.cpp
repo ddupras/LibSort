@@ -36,15 +36,6 @@
 
 #include "LibSort.h"
 
-void DumpVector(std::vector<int> &A)
-{
-    for (std::vector<int>::iterator it = A.begin(); it != A.end(); ++it)
-    {
-        std::cout << ' ' << *it;
-    }
-    std::cout << std::endl;
-}
-
 TEST_CASE("Test sort algorithms", "[sort]")
 {
     std::vector<int> Empty{ };
@@ -145,49 +136,17 @@ TEST_CASE("Test sort algorithms", "[sort]")
     }
 
     std::vector<std::string> B = {"red", "blue", "green"};
-    SECTION("Sort some strings")
+    SECTION("Sort strings")
     {
         LibSort::BubbleSort(B);
         CHECK(std::is_sorted(std::begin(B), std::end(B)));
     }
 
     std::vector<double> C = { 5.67, 19.342, -2.11 };
-    SECTION("Sort some doubles")
+    SECTION("Sort doubles")
     {
         LibSort::BubbleSort(C);
         CHECK(std::is_sorted(std::begin(C), std::end(C)));
     }
 
 }
-
-/*
-int main (int argc, char* argv[])
-{
-    // global setup...
-    int result = Catch::Session().run(argc, argv);
-
-    int A_values[] = { 3, 41, 52, 26, 38, 57, 9, 49 };
-    std::vector<int> A(A_values, A_values + sizeof(A_values) / sizeof(int));
-
-    std::cout << "Merge Sort" << std::endl;
-
-    DumpVector(A);
-
-    std::cout << "Sorting " << A.size() << " elements." << std::endl;
-
-    clock_t sortTime = 0;
-    LibSort::MergeSort(A, 0, A.size() - 1, sortTime);
-//    LibSort::BubbleSort(A, sortTime);
-//    LibSort::ShellSort(A, sortTime);
-
-    DumpVector(A);
-
-    std::cout << "Elapsed Time: " << sortTime << " clock ticks." << std::endl;
-
-    std::cout << "Done." << std::endl;
-    getchar();
-
-    // global clean-up...
-    return (result < 0xff ? result : 0xff);
-}
-*/
