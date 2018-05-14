@@ -34,6 +34,7 @@
 #include <vector>
 
 #include <BubbleSort.h>
+#include <InsertionSort.h>
 
 namespace LibSort
 {
@@ -49,8 +50,5 @@ namespace LibSort
 
     void SelectionSort (std::vector<int> &A);
     void SelectionSort (std::vector<int> &A, clock_t &elapsedTime);
-
-    void InsertionSort (std::vector<int> &A);
-    void InsertionSort (std::vector<int> &A, clock_t &elapsedTime);
 
 } // namespace LibSort
