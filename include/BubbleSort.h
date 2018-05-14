@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// BubbleSort.cpp is a source file for LibSort.
+// BubbleSort.h is a source file for LibSort.
 //
 // https://github.com/ddupras/LibSort/
 //
@@ -36,60 +36,39 @@
 
 namespace LibSort
 {
-
-    void BubbleSort (std::vector<std::string> &A)
+    template<typename T>
+    void BubbleSort(std::vector<T> &Array)
     {
-        if (A.size() == 0)
+        if (Array.size() == 0)
         {
             return;
         }
 
-        for (size_t i = 0; i < A.size() - 1; i++)
+        for (size_t i = 0; i < Array.size() - 1; i++)
         {
-            for (size_t j = A.size() - 1; j > i; j--)
+            for (size_t j = Array.size() - 1; j > i; j--)
             {
-                if (A[j] < A[j - 1])
+                if (Array[j] < Array[j - 1])
                 {
-                    std::string temp = A[j];
-                    A[j] = A[j - 1];
-                    A[j - 1] = temp;
+                    auto temp = Array[j];
+                    Array[j] = Array[j - 1];
+                    Array[j - 1] = temp;
                 }
             }
         }
     }
 
-    void BubbleSort (std::vector<int> &A)
-    {
-        if (A.size() == 0)
-        {
-            return;
-        }
-
-        for (size_t i = 0; i < A.size() - 1; i++)
-        {
-            for (size_t j = A.size() - 1; j > i; j--)
-            {
-                if (A[j] < A[j - 1])
-                {
-                    int temp = A[j];
-                    A[j] = A[j - 1];
-                    A[j - 1] = temp;
-                }
-            }
-        }
-    }
-
-    void BubbleSort (std::vector<int> &A, clock_t &elapsedTime)
+    template<typename T>
+    void BubbleSort(std::vector<T> &Array, clock_t &elapsedTime)
     {
         clock_t startTime;
         clock_t stopTime;
 
         startTime = clock();
 
-        BubbleSort(A);
+        BubbleSort(Array);
 
         stopTime = clock();
         elapsedTime = stopTime - startTime;
     }
-
 } // namespace LibSort

@@ -33,15 +33,13 @@
 #include <ctime>
 #include <vector>
 
+#include <BubbleSort.h>
+
 namespace LibSort
 {
     // Sort methods
     void MergeSort (std::vector<int> &A);
     void MergeSort (std::vector<int> &A, clock_t &elapsedTime);
-
-    void BubbleSort (std::vector<std::string> &A);
-    void BubbleSort (std::vector<int> &A);
-    void BubbleSort (std::vector<int> &A, clock_t &elapsedTime);
 
     void ShellSort (std::vector<int> &A);
     void ShellSort (std::vector<int> &A, clock_t &elapsedTime);
