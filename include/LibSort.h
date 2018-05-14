@@ -30,25 +30,9 @@
 
 #pragma once
 
-#include <ctime>
-#include <vector>
-
 #include <BubbleSort.h>
 #include <InsertionSort.h>
-
-namespace LibSort
-{
-    // Sort methods
-    void MergeSort (std::vector<int> &A);
-    void MergeSort (std::vector<int> &A, clock_t &elapsedTime);
-
-    void ShellSort (std::vector<int> &A);
-    void ShellSort (std::vector<int> &A, clock_t &elapsedTime);
-
-    void QuickSort (std::vector<int> &A);
-    void QuickSort (std::vector<int> &A, clock_t &elapsedTime);
-
-    void SelectionSort (std::vector<int> &A);
-    void SelectionSort (std::vector<int> &A, clock_t &elapsedTime);
-
-} // namespace LibSort
+#include <MergeSort.h>
+#include <QuickSort.h>
+#include <SelectionSort.h>
+#include <ShellSort.h>

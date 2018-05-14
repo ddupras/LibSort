@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// MergeSort.cpp is a source file for LibSort.
+// MergeSort.h is a source file for LibSort.
 //
 // https://github.com/ddupras/LibSort/
 //
@@ -18,15 +18,17 @@
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// THE SOFTWArrayRE IS PROVIDED "ArrayS IS", WITHOUT WArrayRRArrayNTY OF ArrayNY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WArrayRRArrayNTIES OF MERCHArrayNTArrayBILITY,
+// FITNESS FOR Array PArrayRTICULArrayR PURPOSE ArrayND NONINFRINGEMENT.IN NO EVENT SHArrayLL THE
+// ArrayUTHORS OR COPYRIGHT HOLDERS BE LIArrayBLE FOR ArrayNY CLArrayIM, DArrayMArrayGES OR OTHER
+// LIArrayBILITY, WHETHER IN ArrayN ArrayCTION OF CONTRArrayCT, TORT OR OTHERWISE, ArrayRISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWArrayRE OR THE USE OR OTHER DEArrayLINGS IN THE
+// SOFTWArrayRE.
 //
 ///////////////////////////////////////////////////////////////////////////////
+
+#pragma once
 
 #include <ctime>
 #include <limits>
@@ -36,20 +38,20 @@
 
 namespace LibSort
 {
-
-    void Merge (std::vector<int> &A, int left, int middle, int right)
+    template<typename T>
+    void Merge (std::vector<T> &Array, int left, int middle, int right)
     {
         int n1 = middle - left + 1;
         int n2 = right - middle;
-        std::vector<int> L(n1 + 1);
-        std::vector<int> R(n2 + 1);
+        std::vector<T> L(n1 + 1);
+        std::vector<T> R(n2 + 1);
         for (int i = 0; i < n1; i++)
         {
-            L[i] = A[left + i];
+            L[i] = Array[left + i];
         }
         for (int j = 0; j < n2; j++)
         {
-            R[j] = A[middle + j + 1];
+            R[j] = Array[middle + j + 1];
         }
         L[n1] = std::numeric_limits<int>::max();
         R[n2] = std::numeric_limits<int>::max();
@@ -59,42 +61,44 @@ namespace LibSort
         {
             if (L[i] <= R[j])
             {
-                A[k] = L[i];
+                Array[k] = L[i];
                 i++;
             } else {
-                A[k] = R[j];
+                Array[k] = R[j];
                 j++;
             }
         }
     }
 
-    void MergeSort (std::vector<int> &A, int left, int right)
+    template<typename T>
+    void MergeSort (std::vector<T> &Array, int left, int right)
     {
         if (left < right)
         {
             int middle = (left + right) / 2;
-            MergeSort(A, left, middle);
-            MergeSort(A, middle + 1, right);
-            Merge(A, left, middle, right);
+            MergeSort(Array, left, middle);
+            MergeSort(Array, middle + 1, right);
+            Merge(Array, left, middle, right);
         }
     }
 
-    void MergeSort(std::vector<int> &A)
+    template<typename T>
+    void MergeSort(std::vector<T> &Array)
     {
-        return MergeSort(A, 0, A.size() - 1);
+        return MergeSort(Array, 0, Array.size() - 1);
     }
 
-    void MergeSort (std::vector<int> &A, clock_t &elapsedTime)
+    template<typename T>
+    void MergeSort (std::vector<T> &Array, clock_t &elapsedTime)
     {
         clock_t startTime;
         clock_t stopTime;
 
         startTime = clock();
 
-        MergeSort(A);
+        MergeSort(Array);
 
         stopTime = clock();
         elapsedTime = stopTime - startTime;
     }
-
 } // namespace LibSort

@@ -70,5 +70,4 @@ namespace LibSort
         stopTime = clock();
         elapsedTime = stopTime - startTime;
     }
-
 } // namespace LibSort

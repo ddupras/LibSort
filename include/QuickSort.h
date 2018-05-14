@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// QuickSort.cpp is a source file for LibSort.
+// QuickSort.h is a source file for LibSort.
 //
 // https://github.com/ddupras/LibSort/
 //
@@ -18,15 +18,17 @@
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// THE SOFTWArrayRE IS PROVIDED "ArrayS IS", WITHOUT WArrayRRArrayNTY OF ArrayNY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WArrayRRArrayNTIES OF MERCHArrayNTArrayBILITY,
+// FITNESS FOR Array PArrayRTICULArrayR PURPOSE ArrayND NONINFRINGEMENT.IN NO EVENT SHArrayLL THE
+// ArrayUTHORS OR COPYRIGHT HOLDERS BE LIArrayBLE FOR ArrayNY CLArrayIM, DArrayMArrayGES OR OTHER
+// LIArrayBILITY, WHETHER IN ArrayN ArrayCTION OF CONTRArrayCT, TORT OR OTHERWISE, ArrayRISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWArrayRE OR THE USE OR OTHER DEArrayLINGS IN THE
+// SOFTWArrayRE.
 //
 ///////////////////////////////////////////////////////////////////////////////
+
+#pragma once
 
 #include <ctime>
 #include <vector>
@@ -35,54 +37,56 @@
 
 namespace LibSort
 {
-
-    int Partition (std::vector<int> &A, int low, int high)
+    template<typename T>
+    int Partition (std::vector<T> &Array, int low, int high)
     {
-        int pivot = A[high];    // pivot
+        auto pivot = Array[high];    // pivot
         int i = (low - 1);  // Index of smaller element
 
         for (int j = low; j <= high - 1; j++)
         {
             // If current element is smaller than or
             // equal to pivot
-            if (A[j] <= pivot)
+            if (Array[j] <= pivot)
             {
                 i++;    // increment index of smaller element
-                std::swap(A[i], A[j]);
+                std::swap(Array[i], Array[j]);
             }
         }
-        std::swap(A[i + 1], A[high]);
+        std::swap(Array[i + 1], Array[high]);
         return (i + 1);
     }
 
-    void QuickSort (std::vector<int> &A, int low, int high)
+    template<typename T>
+    void QuickSort (std::vector<T> &Array, int low, int high)
     {
         if (low < high)
         {
-            /* pi is partitioning index, arr[p] is now
-            at right place */
-            int pi = Partition(A, low, high);
+            // pi is partitioning index, arr[p] is now at right place
+            int pi = Partition(Array, low, high);
 
             // Separately sort elements before
             // partition and after partition
-            QuickSort(A, low, pi - 1);
-            QuickSort(A, pi + 1, high);
+            QuickSort(Array, low, pi - 1);
+            QuickSort(Array, pi + 1, high);
         }
     }
 
-    void QuickSort(std::vector<int> &A)
+    template<typename T>
+    void QuickSort(std::vector<T> &Array)
     {
-        QuickSort(A, 0, A.size() - 1);
+        QuickSort(Array, 0, Array.size() - 1);
     }
 
-    void QuickSort (std::vector<int> &A, clock_t &elapsedTime)
+    template<typename T>
+    void QuickSort (std::vector<T> &Array, clock_t &elapsedTime)
     {
         clock_t startTime;
         clock_t stopTime;
 
         startTime = clock();
 
-        QuickSort(A);
+        QuickSort(Array);
 
         stopTime = clock();
         elapsedTime = stopTime - startTime;

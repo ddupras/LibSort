@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// ShellSort.cpp is a source file for LibSort.
+// SelectionSort.h is a source file for LibSort.
 //
 // https://github.com/ddupras/LibSort/
 //
@@ -28,6 +28,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+#pragma once
+
 #include <ctime>
 #include <vector>
 
@@ -35,34 +37,35 @@
 
 namespace LibSort
 {
-
-    void ShellSort (std::vector<int> &A)
+    template<typename T>
+    void SelectionSort (std::vector<T> &Array)
     {
-        for (size_t step = A.size() / 2; step > 0; step /= 2)
+        int n = Array.size();
+        int i, j, min_index;
+
+        // One by one move boundary of unsorted subarray
+        for (i = 0; i < n - 1; i++)
         {
-            for (size_t i = step; i < A.size(); i += 1)
-            {
-                int temp = A[i];
+            // Find the minimum element in unsorted array
+            min_index = i;
+            for (j = i + 1; j < n; j++)
+                if (Array[j] < Array[min_index])
+                    min_index = j;
 
-                size_t j;
-                for (j = i; j >= step && A[j - step] > temp; j -= step)
-                {
-                    A[j] = A[j - step];
-                }
-
-                A[j] = temp;
-            }
+            // Swap the found minimum element with the first element
+            std::swap(Array[min_index], Array[i]);
         }
     }
 
-    void ShellSort (std::vector<int> &A, clock_t &elapsedTime)
+    template<typename T>
+    void SelectionSort (std::vector<T> &Array, clock_t &elapsedTime)
     {
         clock_t startTime;
         clock_t stopTime;
 
         startTime = clock();
 
-        ShellSort(A);
+        SelectionSort(Array);
 
         stopTime = clock();
         elapsedTime = stopTime - startTime;
