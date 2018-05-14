@@ -150,6 +150,14 @@ TEST_CASE("Test sort algorithms", "[sort]")
         LibSort::BubbleSort(B);
         CHECK(std::is_sorted(std::begin(B), std::end(B)));
     }
+
+    std::vector<double> C = { 5.67, 19.342, -2.11 };
+    SECTION("Sort some doubles")
+    {
+        LibSort::BubbleSort(C);
+        CHECK(std::is_sorted(std::begin(C), std::end(C)));
+    }
+
 }
 
 /*
