@@ -1,5 +1,4 @@
--- (c) Derek Dupras 2017, All Rights Reserved.
-
+-- (c) Derek Dupras 2017-2018, All Rights Reserved.
 
 -- premake5.lua
 workspace "LibSort"
@@ -18,17 +17,9 @@ project "LibSort-test"
    includedirs { "include", "external/catch" }
    files { "**.h", "**.cpp" }
 
---   filter "configurations:Debug"
---      defines { "DEBUG" }
---      symbols "On"
-
---   filter "configurations:Release"
---      defines { "NDEBUG" }
---      optimize "On"
-
 	configuration "Debug"
 		defines { "DEBUG" }
-		flags { "Symbols" }
+		symbols "On"
 
 	configuration "Release"
 		defines { "NDEBUG" }
