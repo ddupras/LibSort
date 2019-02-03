@@ -262,3 +262,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# Submissions
+submissions/
+
