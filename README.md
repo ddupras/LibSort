@@ -8,7 +8,7 @@ sorting algorithms:
 * Merge sort
 * Quick sort
 * Selection sort
-* Shell's sort
+* Shell sort
 
 Most of these algorithms are found in the MIT Press book, "Introduction to
 Algorithms" by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and
