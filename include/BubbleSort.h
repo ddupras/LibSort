@@ -39,7 +39,7 @@
 namespace LibSort
 {
     template<typename T>
-    void BubbleSort(std::vector<T> &Array)
+    void BubbleSort (std::vector<T> &Array)
     {
         if (Array.size() == 0)
         {
@@ -61,7 +61,7 @@ namespace LibSort
     }
 
     template<typename T>
-    void BubbleSort(std::vector<T> &Array, clock_t &elapsedTime)
+    void BubbleSort (std::vector<T> &Array, clock_t &elapsedTime)
     {
         clock_t startTime;
         clock_t stopTime;

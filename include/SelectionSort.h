@@ -41,14 +41,13 @@ namespace LibSort
     void SelectionSort (std::vector<T> &Array)
     {
         int n = Array.size();
-        int i, j, min_index;
 
         // One by one move boundary of unsorted subarray
-        for (i = 0; i < n - 1; i++)
+        for (int i = 0; i < n - 1; i++)
         {
             // Find the minimum element in unsorted array
-            min_index = i;
-            for (j = i + 1; j < n; j++)
+            int min_index = i;
+            for (int j = i + 1; j < n; j++)
                 if (Array[j] < Array[min_index])
                     min_index = j;
 

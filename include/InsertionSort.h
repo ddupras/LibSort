@@ -40,14 +40,12 @@ namespace LibSort
     template<typename T>
     void InsertionSort (std::vector<T> &Array)
     {
-        int i, j;
-
-        for (j = 1; j < (int)Array.size(); j++)
+        for (int j = 1; j < (int)Array.size(); j++)
         {
             auto key = Array[j];
 
             // Insert Array[j] into the sorted sequence Array[1..j-1]
-            i = j - 1;
+            int i = j - 1;
             while ((i >= 0) && (Array[i] > key))
             {
                 Array[i + 1] = Array[i];
