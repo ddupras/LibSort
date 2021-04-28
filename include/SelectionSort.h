@@ -6,7 +6,7 @@
 //
 // MIT License
 //
-// Copyright(c) 2015-2018 Derek Dupras
+// Copyright(c) 2015-2021 Derek Dupras
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -35,39 +35,39 @@
 
 #include <LibSort.h>
 
-namespace LibSort
+namespace LibSort {
+
+template <typename T>
+void SelectionSort(std::vector<T>& Array)
 {
-    template<typename T>
-    void SelectionSort (std::vector<T> &Array)
-    {
-        int n = Array.size();
+  int n = Array.size();
 
-        // One by one move boundary of unsorted subarray
-        for (int i = 0; i < n - 1; i++)
-        {
-            // Find the minimum element in unsorted array
-            int min_index = i;
-            for (int j = i + 1; j < n; j++)
-                if (Array[j] < Array[min_index])
-                    min_index = j;
+  // One by one move boundary of unsorted subarray
+  for (int i = 0; i < n - 1; i++)
+  {
+    // Find the minimum element in unsorted array
+    int min_index = i;
+    for (int j = i + 1; j < n; j++)
+      if (Array[j] < Array[min_index])
+        min_index = j;
 
-            // Swap the found minimum element with the first element
-            std::swap(Array[min_index], Array[i]);
-        }
-    }
+    // Swap the found minimum element with the first element
+    std::swap(Array[min_index], Array[i]);
+  }
+}
 
-    template<typename T>
-    void SelectionSort (std::vector<T> &Array, clock_t &elapsedTime)
-    {
-        clock_t startTime;
-        clock_t stopTime;
+template <typename T>
+void SelectionSort(std::vector<T>& Array, clock_t& elapsedTime)
+{
+  clock_t startTime;
+  clock_t stopTime;
 
-        startTime = clock();
+  startTime = clock();
 
-        SelectionSort(Array);
+  SelectionSort(Array);
 
-        stopTime = clock();
-        elapsedTime = stopTime - startTime;
-    }
+  stopTime = clock();
+  elapsedTime = stopTime - startTime;
+}
 
-} // namespace LibSort
+}  // namespace LibSort

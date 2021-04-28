@@ -6,7 +6,7 @@
 //
 // MIT License
 //
-// Copyright(c) 2015-2018 Derek Dupras
+// Copyright(c) 2015-2021 Derek Dupras
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -35,40 +35,40 @@
 
 #include <LibSort.h>
 
-namespace LibSort
+namespace LibSort {
+
+template <typename T>
+void ShellSort(std::vector<T>& Array)
 {
-    template<typename T>
-    void ShellSort (std::vector<T> &Array)
+  for (size_t step = Array.size() / 2; step > 0; step /= 2)
+  {
+    for (size_t i = step; i < Array.size(); i += 1)
     {
-        for (size_t step = Array.size() / 2; step > 0; step /= 2)
-        {
-            for (size_t i = step; i < Array.size(); i += 1)
-            {
-                auto temp = Array[i];
+      auto temp = Array[i];
 
-                size_t j;
-                for (j = i; j >= step && Array[j - step] > temp; j -= step)
-                {
-                    Array[j] = Array[j - step];
-                }
+      size_t j;
+      for (j = i; j >= step && Array[j - step] > temp; j -= step)
+      {
+        Array[j] = Array[j - step];
+      }
 
-                Array[j] = temp;
-            }
-        }
+      Array[j] = temp;
     }
+  }
+}
 
-    template<typename T>
-    void ShellSort (std::vector<T> &Array, clock_t &elapsedTime)
-    {
-        clock_t startTime;
-        clock_t stopTime;
+template <typename T>
+void ShellSort(std::vector<T>& Array, clock_t& elapsedTime)
+{
+  clock_t startTime;
+  clock_t stopTime;
 
-        startTime = clock();
+  startTime = clock();
 
-        ShellSort(Array);
+  ShellSort(Array);
 
-        stopTime = clock();
-        elapsedTime = stopTime - startTime;
-    }
+  stopTime = clock();
+  elapsedTime = stopTime - startTime;
+}
 
-} // namespace LibSort
+}  // namespace LibSort

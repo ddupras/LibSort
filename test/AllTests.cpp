@@ -6,7 +6,7 @@
 //
 // MIT License
 //
-// Copyright(c) 2015-2018 Derek Dupras
+// Copyright(c) 2015-2021 Derek Dupras
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files(the "Software"), to deal
@@ -38,115 +38,114 @@
 
 TEST_CASE("Test sort algorithms", "[sort]")
 {
-    std::vector<int> Empty{ };
-    std::vector<int> Single{ 0 };
-    std::vector<int> RepeatedTwo{ 0, 0 };
-    std::vector<int> RepeatedThree{ 0, 0, 0 };
-    std::vector<int> Ordering_1{ 0, 1 };
-    std::vector<int> Ordering_2{ 1, 0 };
-    std::vector<int> Ordering_3{ 0, 1, 2 };
-    std::vector<int> Ordering_4{ 0, 2, 1 };
-    std::vector<int> Ordering_5{ 1, 0, 2 };
-    std::vector<int> Ordering_6{ 1, 2, 0 };
-    std::vector<int> Ordering_7{ 2, 0, 1 };
-    std::vector<int> Ordering_8{ 2, 1, 0 };
-    std::vector<int> Ordering_9{ 0, 1, 1 };
-    std::vector<int> Ordering_10{ 1, 0, 1 };
-    std::vector<int> Ordering_11{ 1, 1, 0 };
-    std::vector<int> ForwardOrdering{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    std::vector<int> ReverseOrdering{ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-    std::vector<int> RandomOrdering_1{ 42, 9, 17, 54, 602, -3, 54, 999, -11 };
-    std::vector<int> RandomOrdering_2{ -11, -3, 9, 17, 42, 54, 54, 602, 999 };
+  std::vector<int> Empty{};
+  std::vector<int> Single{ 0 };
+  std::vector<int> RepeatedTwo{ 0, 0 };
+  std::vector<int> RepeatedThree{ 0, 0, 0 };
+  std::vector<int> Ordering_1{ 0, 1 };
+  std::vector<int> Ordering_2{ 1, 0 };
+  std::vector<int> Ordering_3{ 0, 1, 2 };
+  std::vector<int> Ordering_4{ 0, 2, 1 };
+  std::vector<int> Ordering_5{ 1, 0, 2 };
+  std::vector<int> Ordering_6{ 1, 2, 0 };
+  std::vector<int> Ordering_7{ 2, 0, 1 };
+  std::vector<int> Ordering_8{ 2, 1, 0 };
+  std::vector<int> Ordering_9{ 0, 1, 1 };
+  std::vector<int> Ordering_10{ 1, 0, 1 };
+  std::vector<int> Ordering_11{ 1, 1, 0 };
+  std::vector<int> ForwardOrdering{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+  std::vector<int> ReverseOrdering{ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+  std::vector<int> RandomOrdering_1{ 42, 9, 17, 54, 602, -3, 54, 999, -11 };
+  std::vector<int> RandomOrdering_2{ -11, -3, 9, 17, 42, 54, 54, 602, 999 };
 
-    int A_values[] = { 93, 41, 52, 26, 38, 57, 9, 49 };
-    std::vector<int> A(A_values, A_values + sizeof(A_values) / sizeof(int));
+  int A_values[] = { 93, 41, 52, 26, 38, 57, 9, 49 };
+  std::vector<int> A(A_values, A_values + sizeof(A_values) / sizeof(int));
 
-    SECTION("BubbleSort")
-    {
-        LibSort::BubbleSort(Empty);
-        CHECK(std::is_sorted(std::begin(Empty), std::end(Empty)));
-        LibSort::BubbleSort(Single);
-        CHECK(std::is_sorted(std::begin(Single), std::end(Single)));
-        LibSort::BubbleSort(RepeatedTwo);
-        CHECK(std::is_sorted(std::begin(RepeatedTwo), std::end(RepeatedTwo)));
-        LibSort::BubbleSort(RepeatedThree);
-        CHECK(std::is_sorted(std::begin(RepeatedThree), std::end(RepeatedThree)));
-        LibSort::BubbleSort(Ordering_1);
-        CHECK(std::is_sorted(std::begin(Ordering_1), std::end(Ordering_1)));
-        LibSort::BubbleSort(Ordering_2);
-        CHECK(std::is_sorted(std::begin(Ordering_2), std::end(Ordering_2)));
-        LibSort::BubbleSort(Ordering_3);
-        CHECK(std::is_sorted(std::begin(Ordering_3), std::end(Ordering_3)));
-        LibSort::BubbleSort(Ordering_4);
-        CHECK(std::is_sorted(std::begin(Ordering_4), std::end(Ordering_4)));
-        LibSort::BubbleSort(Ordering_5);
-        CHECK(std::is_sorted(std::begin(Ordering_5), std::end(Ordering_5)));
-        LibSort::BubbleSort(Ordering_6);
-        CHECK(std::is_sorted(std::begin(Ordering_6), std::end(Ordering_6)));
-        LibSort::BubbleSort(Ordering_7);
-        CHECK(std::is_sorted(std::begin(Ordering_7), std::end(Ordering_7)));
-        LibSort::BubbleSort(Ordering_8);
-        CHECK(std::is_sorted(std::begin(Ordering_8), std::end(Ordering_8)));
-        LibSort::BubbleSort(Ordering_9);
-        CHECK(std::is_sorted(std::begin(Ordering_9), std::end(Ordering_9)));
-        LibSort::BubbleSort(Ordering_10);
-        CHECK(std::is_sorted(std::begin(Ordering_10), std::end(Ordering_10)));
-        LibSort::BubbleSort(Ordering_11);
-        CHECK(std::is_sorted(std::begin(Ordering_11), std::end(Ordering_11)));
-        LibSort::BubbleSort(ForwardOrdering);
-        CHECK(std::is_sorted(std::begin(ForwardOrdering), std::end(ForwardOrdering)));
-        LibSort::BubbleSort(ReverseOrdering);
-        CHECK(std::is_sorted(std::begin(ReverseOrdering), std::end(ReverseOrdering)));
-        LibSort::BubbleSort(RandomOrdering_1);
-        CHECK(std::is_sorted(std::begin(RandomOrdering_1), std::end(RandomOrdering_1)));
-        LibSort::BubbleSort(RandomOrdering_2);
-        CHECK(std::is_sorted(std::begin(RandomOrdering_2), std::end(RandomOrdering_2)));
-        LibSort::BubbleSort(A);
-        CHECK(std::is_sorted(std::begin(A), std::end(A)));
-    }
+  SECTION("BubbleSort")
+  {
+    LibSort::BubbleSort(Empty);
+    CHECK(std::is_sorted(std::begin(Empty), std::end(Empty)));
+    LibSort::BubbleSort(Single);
+    CHECK(std::is_sorted(std::begin(Single), std::end(Single)));
+    LibSort::BubbleSort(RepeatedTwo);
+    CHECK(std::is_sorted(std::begin(RepeatedTwo), std::end(RepeatedTwo)));
+    LibSort::BubbleSort(RepeatedThree);
+    CHECK(std::is_sorted(std::begin(RepeatedThree), std::end(RepeatedThree)));
+    LibSort::BubbleSort(Ordering_1);
+    CHECK(std::is_sorted(std::begin(Ordering_1), std::end(Ordering_1)));
+    LibSort::BubbleSort(Ordering_2);
+    CHECK(std::is_sorted(std::begin(Ordering_2), std::end(Ordering_2)));
+    LibSort::BubbleSort(Ordering_3);
+    CHECK(std::is_sorted(std::begin(Ordering_3), std::end(Ordering_3)));
+    LibSort::BubbleSort(Ordering_4);
+    CHECK(std::is_sorted(std::begin(Ordering_4), std::end(Ordering_4)));
+    LibSort::BubbleSort(Ordering_5);
+    CHECK(std::is_sorted(std::begin(Ordering_5), std::end(Ordering_5)));
+    LibSort::BubbleSort(Ordering_6);
+    CHECK(std::is_sorted(std::begin(Ordering_6), std::end(Ordering_6)));
+    LibSort::BubbleSort(Ordering_7);
+    CHECK(std::is_sorted(std::begin(Ordering_7), std::end(Ordering_7)));
+    LibSort::BubbleSort(Ordering_8);
+    CHECK(std::is_sorted(std::begin(Ordering_8), std::end(Ordering_8)));
+    LibSort::BubbleSort(Ordering_9);
+    CHECK(std::is_sorted(std::begin(Ordering_9), std::end(Ordering_9)));
+    LibSort::BubbleSort(Ordering_10);
+    CHECK(std::is_sorted(std::begin(Ordering_10), std::end(Ordering_10)));
+    LibSort::BubbleSort(Ordering_11);
+    CHECK(std::is_sorted(std::begin(Ordering_11), std::end(Ordering_11)));
+    LibSort::BubbleSort(ForwardOrdering);
+    CHECK(std::is_sorted(std::begin(ForwardOrdering), std::end(ForwardOrdering)));
+    LibSort::BubbleSort(ReverseOrdering);
+    CHECK(std::is_sorted(std::begin(ReverseOrdering), std::end(ReverseOrdering)));
+    LibSort::BubbleSort(RandomOrdering_1);
+    CHECK(std::is_sorted(std::begin(RandomOrdering_1), std::end(RandomOrdering_1)));
+    LibSort::BubbleSort(RandomOrdering_2);
+    CHECK(std::is_sorted(std::begin(RandomOrdering_2), std::end(RandomOrdering_2)));
+    LibSort::BubbleSort(A);
+    CHECK(std::is_sorted(std::begin(A), std::end(A)));
+  }
 
-    SECTION("MergeSort")
-    {
-        LibSort::MergeSort(A);
-        CHECK(std::is_sorted(std::begin(A), std::end(A)));
-    }
+  SECTION("MergeSort")
+  {
+    LibSort::MergeSort(A);
+    CHECK(std::is_sorted(std::begin(A), std::end(A)));
+  }
 
-    SECTION("ShellSort")
-    {
-        LibSort::ShellSort(A);
-        CHECK(std::is_sorted(std::begin(A), std::end(A)));
-    }
+  SECTION("ShellSort")
+  {
+    LibSort::ShellSort(A);
+    CHECK(std::is_sorted(std::begin(A), std::end(A)));
+  }
 
-    SECTION("QuickSort")
-    {
-        LibSort::QuickSort(A);
-        CHECK(std::is_sorted(std::begin(A), std::end(A)));
-    }
+  SECTION("QuickSort")
+  {
+    LibSort::QuickSort(A);
+    CHECK(std::is_sorted(std::begin(A), std::end(A)));
+  }
 
-    SECTION("SelectionSort")
-    {
-        LibSort::SelectionSort(A);
-        CHECK(std::is_sorted(std::begin(A), std::end(A)));
-    }
+  SECTION("SelectionSort")
+  {
+    LibSort::SelectionSort(A);
+    CHECK(std::is_sorted(std::begin(A), std::end(A)));
+  }
 
-    SECTION("InsertionSort")
-    {
-        LibSort::InsertionSort(A);
-        CHECK(std::is_sorted(std::begin(A), std::end(A)));
-    }
+  SECTION("InsertionSort")
+  {
+    LibSort::InsertionSort(A);
+    CHECK(std::is_sorted(std::begin(A), std::end(A)));
+  }
 
-    std::vector<std::string> B = {"red", "blue", "green"};
-    SECTION("Sort strings")
-    {
-        LibSort::BubbleSort(B);
-        CHECK(std::is_sorted(std::begin(B), std::end(B)));
-    }
+  std::vector<std::string> B = { "red", "blue", "green" };
+  SECTION("Sort strings")
+  {
+    LibSort::BubbleSort(B);
+    CHECK(std::is_sorted(std::begin(B), std::end(B)));
+  }
 
-    std::vector<double> C = { 5.67, 19.342, -2.11 };
-    SECTION("Sort doubles")
-    {
-        LibSort::BubbleSort(C);
-        CHECK(std::is_sorted(std::begin(C), std::end(C)));
-    }
-
+  std::vector<double> C = { 5.67, 19.342, -2.11 };
+  SECTION("Sort doubles")
+  {
+    LibSort::BubbleSort(C);
+    CHECK(std::is_sorted(std::begin(C), std::end(C)));
+  }
 }

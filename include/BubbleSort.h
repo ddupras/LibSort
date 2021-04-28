@@ -6,7 +6,7 @@
 //
 // MIT License
 //
-// Copyright(c) 2015-2018 Derek Dupras
+// Copyright(c) 2015-2021 Derek Dupras
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -36,41 +36,42 @@
 
 #include <LibSort.h>
 
-namespace LibSort
+namespace LibSort {
+
+template <typename T>
+void BubbleSort(std::vector<T>& Array)
 {
-    template<typename T>
-    void BubbleSort (std::vector<T> &Array)
+  if (Array.size() == 0)
+  {
+    return;
+  }
+
+  for (size_t i = 0; i < Array.size() - 1; i++)
+  {
+    for (size_t j = Array.size() - 1; j > i; j--)
     {
-        if (Array.size() == 0)
-        {
-            return;
-        }
-
-        for (size_t i = 0; i < Array.size() - 1; i++)
-        {
-            for (size_t j = Array.size() - 1; j > i; j--)
-            {
-                if (Array[j] < Array[j - 1])
-                {
-                    auto temp = Array[j];
-                    Array[j] = Array[j - 1];
-                    Array[j - 1] = temp;
-                }
-            }
-        }
+      if (Array[j] < Array[j - 1])
+      {
+        auto temp = Array[j];
+        Array[j] = Array[j - 1];
+        Array[j - 1] = temp;
+      }
     }
+  }
+}
 
-    template<typename T>
-    void BubbleSort (std::vector<T> &Array, clock_t &elapsedTime)
-    {
-        clock_t startTime;
-        clock_t stopTime;
+template <typename T>
+void BubbleSort(std::vector<T>& Array, clock_t& elapsedTime)
+{
+  clock_t startTime;
+  clock_t stopTime;
 
-        startTime = clock();
+  startTime = clock();
 
-        BubbleSort(Array);
+  BubbleSort(Array);
 
-        stopTime = clock();
-        elapsedTime = stopTime - startTime;
-    }
-} // namespace LibSort
+  stopTime = clock();
+  elapsedTime = stopTime - startTime;
+}
+
+}  // namespace LibSort

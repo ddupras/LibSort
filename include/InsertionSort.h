@@ -6,7 +6,7 @@
 //
 // MIT License
 //
-// Copyright(c) 2015-2018 Derek Dupras
+// Copyright(c) 2015-2021 Derek Dupras
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -35,37 +35,38 @@
 
 #include <LibSort.h>
 
-namespace LibSort
+namespace LibSort {
+
+template <typename T>
+void InsertionSort(std::vector<T>& Array)
 {
-    template<typename T>
-    void InsertionSort (std::vector<T> &Array)
+  for (int j = 1; j < (int)Array.size(); j++)
+  {
+    auto key = Array[j];
+
+    // Insert Array[j] into the sorted sequence Array[1..j-1]
+    int i = j - 1;
+    while ((i >= 0) && (Array[i] > key))
     {
-        for (int j = 1; j < (int)Array.size(); j++)
-        {
-            auto key = Array[j];
-
-            // Insert Array[j] into the sorted sequence Array[1..j-1]
-            int i = j - 1;
-            while ((i >= 0) && (Array[i] > key))
-            {
-                Array[i + 1] = Array[i];
-                i = i - 1;
-            }
-            Array[i + 1] = key;
-        }
+      Array[i + 1] = Array[i];
+      i = i - 1;
     }
+    Array[i + 1] = key;
+  }
+}
 
-    template<typename T>
-    void InsertionSort (std::vector<T> &Array, clock_t &elapsedTime)
-    {
-        clock_t startTime;
-        clock_t stopTime;
+template <typename T>
+void InsertionSort(std::vector<T>& Array, clock_t& elapsedTime)
+{
+  clock_t startTime;
+  clock_t stopTime;
 
-        startTime = clock();
+  startTime = clock();
 
-        InsertionSort(Array);
+  InsertionSort(Array);
 
-        stopTime = clock();
-        elapsedTime = stopTime - startTime;
-    }
-} // namespace LibSort
+  stopTime = clock();
+  elapsedTime = stopTime - startTime;
+}
+
+}  // namespace LibSort

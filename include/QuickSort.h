@@ -6,7 +6,7 @@
 //
 // MIT License
 //
-// Copyright(c) 2015-2018 Derek Dupras
+// Copyright(c) 2015-2021 Derek Dupras
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -35,61 +35,61 @@
 
 #include <LibSort.h>
 
-namespace LibSort
+namespace LibSort {
+
+template <typename T>
+int Partition(std::vector<T>& Array, int low, int high)
 {
-    template<typename T>
-    int Partition (std::vector<T> &Array, int low, int high)
+  auto pivot = Array[high];  // pivot
+  int i = (low - 1);         // Index of smaller element
+
+  for (int j = low; j <= high - 1; j++)
+  {
+    // If current element is smaller than or
+    // equal to pivot
+    if (Array[j] <= pivot)
     {
-        auto pivot = Array[high];    // pivot
-        int i = (low - 1);  // Index of smaller element
-
-        for (int j = low; j <= high - 1; j++)
-        {
-            // If current element is smaller than or
-            // equal to pivot
-            if (Array[j] <= pivot)
-            {
-                i++;    // increment index of smaller element
-                std::swap(Array[i], Array[j]);
-            }
-        }
-        std::swap(Array[i + 1], Array[high]);
-        return (i + 1);
+      i++;  // increment index of smaller element
+      std::swap(Array[i], Array[j]);
     }
+  }
+  std::swap(Array[i + 1], Array[high]);
+  return (i + 1);
+}
 
-    template<typename T>
-    void QuickSort (std::vector<T> &Array, int low, int high)
-    {
-        if (low < high)
-        {
-            // pi is partitioning index, arr[p] is now at right place
-            int pi = Partition(Array, low, high);
+template <typename T>
+void QuickSort(std::vector<T>& Array, int low, int high)
+{
+  if (low < high)
+  {
+    // pi is partitioning index, arr[p] is now at right place
+    int pi = Partition(Array, low, high);
 
-            // Separately sort elements before
-            // partition and after partition
-            QuickSort(Array, low, pi - 1);
-            QuickSort(Array, pi + 1, high);
-        }
-    }
+    // Separately sort elements before
+    // partition and after partition
+    QuickSort(Array, low, pi - 1);
+    QuickSort(Array, pi + 1, high);
+  }
+}
 
-    template<typename T>
-    void QuickSort(std::vector<T> &Array)
-    {
-        QuickSort(Array, 0, Array.size() - 1);
-    }
+template <typename T>
+void QuickSort(std::vector<T>& Array)
+{
+  QuickSort(Array, 0, Array.size() - 1);
+}
 
-    template<typename T>
-    void QuickSort (std::vector<T> &Array, clock_t &elapsedTime)
-    {
-        clock_t startTime;
-        clock_t stopTime;
+template <typename T>
+void QuickSort(std::vector<T>& Array, clock_t& elapsedTime)
+{
+  clock_t startTime;
+  clock_t stopTime;
 
-        startTime = clock();
+  startTime = clock();
 
-        QuickSort(Array);
+  QuickSort(Array);
 
-        stopTime = clock();
-        elapsedTime = stopTime - startTime;
-    }
+  stopTime = clock();
+  elapsedTime = stopTime - startTime;
+}
 
-} // namespace LibSort
+}  // namespace LibSort

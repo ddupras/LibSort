@@ -6,7 +6,7 @@
 //
 // MIT License
 //
-// Copyright(c) 2015-2018 Derek Dupras
+// Copyright(c) 2015-2021 Derek Dupras
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -36,69 +36,72 @@
 
 #include <LibSort.h>
 
-namespace LibSort
+namespace LibSort {
+
+template <typename T>
+void Merge(std::vector<T>& Array, int left, int middle, int right)
 {
-    template<typename T>
-    void Merge (std::vector<T> &Array, int left, int middle, int right)
+  int n1 = middle - left + 1;
+  int n2 = right - middle;
+  std::vector<T> L(n1 + 1);
+  std::vector<T> R(n2 + 1);
+  for (int i = 0; i < n1; i++)
+  {
+    L[i] = Array[left + i];
+  }
+  for (int j = 0; j < n2; j++)
+  {
+    R[j] = Array[middle + j + 1];
+  }
+  L[n1] = std::numeric_limits<int>::max();
+  R[n2] = std::numeric_limits<int>::max();
+  int i = 0;
+  int j = 0;
+  for (int k = left; k <= right; k++)
+  {
+    if (L[i] <= R[j])
     {
-        int n1 = middle - left + 1;
-        int n2 = right - middle;
-        std::vector<T> L(n1 + 1);
-        std::vector<T> R(n2 + 1);
-        for (int i = 0; i < n1; i++)
-        {
-            L[i] = Array[left + i];
-        }
-        for (int j = 0; j < n2; j++)
-        {
-            R[j] = Array[middle + j + 1];
-        }
-        L[n1] = std::numeric_limits<int>::max();
-        R[n2] = std::numeric_limits<int>::max();
-        int i = 0;
-        int j = 0;
-        for (int k = left; k <= right; k++)
-        {
-            if (L[i] <= R[j])
-            {
-                Array[k] = L[i];
-                i++;
-            } else {
-                Array[k] = R[j];
-                j++;
-            }
-        }
+      Array[k] = L[i];
+      i++;
     }
-
-    template<typename T>
-    void MergeSort (std::vector<T> &Array, int left, int right)
+    else
     {
-        if (left < right)
-        {
-            int middle = (left + right) / 2;
-            MergeSort(Array, left, middle);
-            MergeSort(Array, middle + 1, right);
-            Merge(Array, left, middle, right);
-        }
+      Array[k] = R[j];
+      j++;
     }
+  }
+}
 
-    template<typename T>
-    void MergeSort(std::vector<T> &Array)
-    {
-        return MergeSort(Array, 0, Array.size() - 1);
-    }
+template <typename T>
+void MergeSort(std::vector<T>& Array, int left, int right)
+{
+  if (left < right)
+  {
+    int middle = (left + right) / 2;
+    MergeSort(Array, left, middle);
+    MergeSort(Array, middle + 1, right);
+    Merge(Array, left, middle, right);
+  }
+}
 
-    template<typename T>
-    void MergeSort (std::vector<T> &Array, clock_t &elapsedTime)
-    {
-        clock_t startTime;
-        clock_t stopTime;
+template <typename T>
+void MergeSort(std::vector<T>& Array)
+{
+  return MergeSort(Array, 0, Array.size() - 1);
+}
 
-        startTime = clock();
+template <typename T>
+void MergeSort(std::vector<T>& Array, clock_t& elapsedTime)
+{
+  clock_t startTime;
+  clock_t stopTime;
 
-        MergeSort(Array);
+  startTime = clock();
 
-        stopTime = clock();
-        elapsedTime = stopTime - startTime;
-    }
-} // namespace LibSort
+  MergeSort(Array);
+
+  stopTime = clock();
+  elapsedTime = stopTime - startTime;
+}
+
+}  // namespace LibSort
